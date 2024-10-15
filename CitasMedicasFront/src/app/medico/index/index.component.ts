@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MedicoService } from '../medico.service';
 import { Medico } from '../medico';
+import { RouterModule } from '@angular/router';
 
 
 @Component({
@@ -10,6 +11,7 @@ import { Medico } from '../medico';
 })
 export class IndexComponent implements OnInit{
   medicos: Medico[] = [];
+Medicos: any;
 
   constructor(public medicoService: MedicoService){}
 

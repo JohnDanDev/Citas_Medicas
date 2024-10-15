@@ -1,1 +1,90 @@
-<p>create works!</p>
+<div>
+    <div class="d-flex justify-content-between">
+        <h4>Form Create</h4>
+        <a href="#" routerLink="/medico/index" class="btn btn-primary"> Back </a>
+    </div>
+
+    <hr/>
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+        <div class="form-group row">
+            <div class="col-md-6">
+            <label for="title">Nombre:</label>
+            <input 
+            formControlName="nombre"
+            id="nombre"
+            type="text"
+            class="form-control">
+
+                <div *ngIf="f.nombre.touched && f.nombre.invalid" class="alert alert-danger">
+                    <div *ngIf="f.nombre.errors.required">*nombre is required</div>
+                    <div *ngIf="f.nombre.errors.pattern">*nombre debe contener letras</div>
+                </div>
+            </div>    
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-6">
+            <label for="title">Apellido Paterno:</label>
+            <input 
+            formControlName="apaterno"
+            id="apaterno"
+            type="text"
+            class="form-control">
+
+                <div *ngIf="f.apaterno.touched && f.apaterno.invalid" class="alert alert-danger">
+                    <div *ngIf="f.apaterno.errors.required">*Appelido Paterno is required</div>
+                    <div *ngIf="f.apaterno.errors.pattern">*Apellido Materno debe contener letras</div>
+                </div>
+            </div>    
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-6">
+            <label for="title">Apellido Materno:</label>
+            <input 
+            formControlName="amaterno"
+            id="amaterno"
+            type="text"
+            class="form-control">
+
+                <div *ngIf="f.amaterno.touched && f.amaterno.invalid" class="alert alert-danger">
+                    <div *ngIf="f.amaterno.errors.required">*nombre is required</div>
+                    <div *ngIf="f.amaterno.errors.pattern">*nombre debe contener letras</div>
+                </div>
+            </div>    
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-6">
+            <label for="title">Usuario:</label>
+            <input 
+            formControlName="usuario"
+            id="usuario"
+            type="text"
+            class="form-control">
+
+                <div *ngIf="f.usuario.touched && f.usuario.invalid" class="alert alert-danger">
+                    <div *ngIf="f.usuario.errors.required">*Usuario is required</div>
+                </div>
+            </div>    
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-6">
+            <label for="title">Contraseña:</label>
+            <input 
+            formControlName="password"
+            id="password"
+            type="text"
+            class="form-control">
+
+                <div *ngIf="f.password.touched && f.password.invalid" class="alert alert-danger">
+                    <div *ngIf="f.password.errors.required">*password is required</div>
+                    <div *ngIf="f.password.errors.pattern">*password debe contener letras</div>
+                </div>
+            </div>    
+        </div>
+        <button class="btn btn-primary" type="submit" [disabled]="!form.valid">Submit</button>
+    </form>
+</div>
