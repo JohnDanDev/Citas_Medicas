@@ -10,7 +10,7 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
 })
 export class CreateComponent implements OnInit {
 
-  form!: FormGroup<any>;
+  form: FormGroup = new FormGroup({});
 
   constructor(
     private fb: FormBuilder,
