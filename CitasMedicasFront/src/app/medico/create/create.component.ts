@@ -10,16 +10,21 @@ import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms'
 })
 export class CreateComponent implements OnInit {
 
-  form: FormGroup = new FormGroup({});
+  form: FormGroup;
 
   constructor(
     private fb: FormBuilder,
     public medicoService: MedicoService,
     private router: Router
 
-  ){ }
+  ){
+    this.form = this.fb.group({
+      
+    })
+  }
 
   ngOnInit(): void {
+
     this.form = new FormGroup({
       nombre: new FormControl('', [Validators.required, Validators.pattern('^[a-zA-ZÁáÀàÉéÈèÍíÌìÓóÒòÚúÙùÑñüÜ \-\']+')]),
       apaterno: new FormControl('', [Validators.required, Validators.pattern('^[a-zA-ZÁáÀàÉéÈèÍíÌìÓóÒòÚúÙùÑñüÜ \-\']+')]),
@@ -33,7 +38,7 @@ export class CreateComponent implements OnInit {
     return this.form.controls;
   }
 
-  submit(){
+  onSubmit(){
     console.log(this.form.value);
     this.medicoService.create(this.form.value).subscribe(res =>{
       console.log('Medico created successfully!');

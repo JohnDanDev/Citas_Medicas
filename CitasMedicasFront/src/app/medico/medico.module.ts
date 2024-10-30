@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RouterModule, Routes } from '@angular/router';
+import { RouterModule } from '@angular/router';
 import { MedicoRoutingModule } from './medico-routing.module';
 import { AppComponent } from '../app.component';
 import { IndexComponent } from './index/index.component';
@@ -12,7 +12,8 @@ import { CreateComponent } from './create/create.component';
 
 @NgModule({
   declarations: [
-    IndexComponent
+    IndexComponent,
+    CreateComponent
   ],
   imports: [
     CommonModule,
@@ -23,6 +24,6 @@ import { CreateComponent } from './create/create.component';
     
   ],
   providers:[],
-  bootstrap: [CreateComponent]
+  bootstrap: [IndexComponent]
 })
 export class MedicoModule { }
